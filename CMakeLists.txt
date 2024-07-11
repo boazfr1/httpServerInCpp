@@ -11,6 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_executable(TcpServer
     http_tcpServer_linux.cpp
     server_linux.cpp
+    routes.cpp
 )
 
 # Include directories

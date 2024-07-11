@@ -126,8 +126,7 @@ namespace http
             oss << "------ Received Request from client ------\n\n";
             log(oss.str());
 
-            Routes route(std::string(buffer));
-
+            Routes route(buffer);
             std::string path = route.getPath();
             std::string method = route.getMethod();            
 

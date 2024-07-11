@@ -2,7 +2,7 @@
 #include <regex>
 
 
-Routes::Routes(const std::string &buffer)
+Routes::Routes(std::string &buffer)
 {
     std::regex requestRegex(R"(> (\w+) (/[^ ]*) HTTP/1.1)");
     std::smatch match;
@@ -26,9 +26,9 @@ Routes::~Routes()
 {
 }
 
-std::string Routes::getPath() const{
+std::string Routes::getPath(){
     return path;
 };
-std::string Routes::getMethod() const {
+std::string Routes::getMethod(){
     return method;
 };

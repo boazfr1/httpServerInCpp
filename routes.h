@@ -10,10 +10,10 @@ private:
     std::string path;
     std::string method;
 public:
-    Routes(const std::string &buffer);
+    Routes(std::string &buffer);
     ~Routes();
-    std::string getPath() const;
-    std::string getMethod() const;
+    std::string getPath();
+    std::string getMethod();
 };
 
 #endif 
