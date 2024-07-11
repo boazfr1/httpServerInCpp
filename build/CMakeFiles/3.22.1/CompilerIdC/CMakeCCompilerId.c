@@ -67,7 +67,7 @@
 #  define SIMULATE_VERSION_PATCH DEC(__GNUC_PATCHLEVEL__)
 # endif
 
-#elif (defined(__clang__) && defined(__INTEL_CLANG_COMPILER)) || defined(__INTEL_LLVM_COMPILER)
+#elif (defined(__clang__) && defined(__INTEL_CLANG_COMPILER)) || defined(__INTEL_LLVserver_COMPILER)
 # define COMPILER_ID "IntelLLVM"
 #if defined(_MSC_VER)
 # define SIMULATE_ID "MSVC"
@@ -75,18 +75,18 @@
 #if defined(__GNUC__)
 # define SIMULATE_ID "GNU"
 #endif
-/* __INTEL_LLVM_COMPILER = VVVVRP prior to 2021.2.0, VVVVRRPP for 2021.2.0 and
+/* __INTEL_LLVserver_COMPILER = VVVVRP prior to 2021.2.0, VVVVRRPP for 2021.2.0 and
  * later.  Look for 6 digit vs. 8 digit version number to decide encoding.
  * VVVV is no smaller than the current year when a version is released.
  */
-#if __INTEL_LLVM_COMPILER < 1000000L
-# define COMPILER_VERSION_MAJOR DEC(__INTEL_LLVM_COMPILER/100)
-# define COMPILER_VERSION_MINOR DEC(__INTEL_LLVM_COMPILER/10 % 10)
-# define COMPILER_VERSION_PATCH DEC(__INTEL_LLVM_COMPILER    % 10)
+#if __INTEL_LLVserver_COMPILER < 1000000L
+# define COMPILER_VERSION_MAJOR DEC(__INTEL_LLVserver_COMPILER/100)
+# define COMPILER_VERSION_MINOR DEC(__INTEL_LLVserver_COMPILER/10 % 10)
+# define COMPILER_VERSION_PATCH DEC(__INTEL_LLVserver_COMPILER    % 10)
 #else
-# define COMPILER_VERSION_MAJOR DEC(__INTEL_LLVM_COMPILER/10000)
-# define COMPILER_VERSION_MINOR DEC(__INTEL_LLVM_COMPILER/100 % 100)
-# define COMPILER_VERSION_PATCH DEC(__INTEL_LLVM_COMPILER     % 100)
+# define COMPILER_VERSION_MAJOR DEC(__INTEL_LLVserver_COMPILER/10000)
+# define COMPILER_VERSION_MINOR DEC(__INTEL_LLVserver_COMPILER/100 % 100)
+# define COMPILER_VERSION_PATCH DEC(__INTEL_LLVserver_COMPILER     % 100)
 #endif
 #if defined(_MSC_VER)
   /* _MSC_VER = VVRR */
@@ -360,7 +360,7 @@
 
 #elif defined(__IAR_SYSTEMS_ICC__) || defined(__IAR_SYSTEMS_ICC)
 # define COMPILER_ID "IAR"
-# if defined(__VER__) && defined(__ICCARM__)
+# if defined(__VER__) && defined(__ICCARserver__)
 #  define COMPILER_VERSION_MAJOR DEC((__VER__) / 1000000)
 #  define COMPILER_VERSION_MINOR DEC(((__VER__) / 1000) % 1000)
 #  define COMPILER_VERSION_PATCH DEC((__VER__) % 1000)
@@ -418,110 +418,110 @@ char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";
 
 /* Identify known platforms by name.  */
 #if defined(__linux) || defined(__linux__) || defined(linux)
-# define PLATFORM_ID "Linux"
+# define PLATFORserver_ID "Linux"
 
 #elif defined(__MSYS__)
-# define PLATFORM_ID "MSYS"
+# define PLATFORserver_ID "MSYS"
 
 #elif defined(__CYGWIN__)
-# define PLATFORM_ID "Cygwin"
+# define PLATFORserver_ID "Cygwin"
 
 #elif defined(__MINGW32__)
-# define PLATFORM_ID "MinGW"
+# define PLATFORserver_ID "MinGW"
 
 #elif defined(__APPLE__)
-# define PLATFORM_ID "Darwin"
+# define PLATFORserver_ID "Darwin"
 
 #elif defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
-# define PLATFORM_ID "Windows"
+# define PLATFORserver_ID "Windows"
 
 #elif defined(__FreeBSD__) || defined(__FreeBSD)
-# define PLATFORM_ID "FreeBSD"
+# define PLATFORserver_ID "FreeBSD"
 
 #elif defined(__NetBSD__) || defined(__NetBSD)
-# define PLATFORM_ID "NetBSD"
+# define PLATFORserver_ID "NetBSD"
 
 #elif defined(__OpenBSD__) || defined(__OPENBSD)
-# define PLATFORM_ID "OpenBSD"
+# define PLATFORserver_ID "OpenBSD"
 
 #elif defined(__sun) || defined(sun)
-# define PLATFORM_ID "SunOS"
+# define PLATFORserver_ID "SunOS"
 
 #elif defined(_AIX) || defined(__AIX) || defined(__AIX__) || defined(__aix) || defined(__aix__)
-# define PLATFORM_ID "AIX"
+# define PLATFORserver_ID "AIX"
 
 #elif defined(__hpux) || defined(__hpux__)
-# define PLATFORM_ID "HP-UX"
+# define PLATFORserver_ID "HP-UX"
 
 #elif defined(__HAIKU__)
-# define PLATFORM_ID "Haiku"
+# define PLATFORserver_ID "Haiku"
 
 #elif defined(__BeOS) || defined(__BEOS__) || defined(_BEOS)
-# define PLATFORM_ID "BeOS"
+# define PLATFORserver_ID "BeOS"
 
 #elif defined(__QNX__) || defined(__QNXNTO__)
-# define PLATFORM_ID "QNX"
+# define PLATFORserver_ID "QNX"
 
 #elif defined(__tru64) || defined(_tru64) || defined(__TRU64__)
-# define PLATFORM_ID "Tru64"
+# define PLATFORserver_ID "Tru64"
 
 #elif defined(__riscos) || defined(__riscos__)
-# define PLATFORM_ID "RISCos"
+# define PLATFORserver_ID "RISCos"
 
 #elif defined(__sinix) || defined(__sinix__) || defined(__SINIX__)
-# define PLATFORM_ID "SINIX"
+# define PLATFORserver_ID "SINIX"
 
 #elif defined(__UNIX_SV__)
-# define PLATFORM_ID "UNIX_SV"
+# define PLATFORserver_ID "UNIX_SV"
 
 #elif defined(__bsdos__)
-# define PLATFORM_ID "BSDOS"
+# define PLATFORserver_ID "BSDOS"
 
 #elif defined(_MPRAS) || defined(MPRAS)
-# define PLATFORM_ID "MP-RAS"
+# define PLATFORserver_ID "MP-RAS"
 
 #elif defined(__osf) || defined(__osf__)
-# define PLATFORM_ID "OSF1"
+# define PLATFORserver_ID "OSF1"
 
 #elif defined(_SCO_SV) || defined(SCO_SV) || defined(sco_sv)
-# define PLATFORM_ID "SCO_SV"
+# define PLATFORserver_ID "SCO_SV"
 
 #elif defined(__ultrix) || defined(__ultrix__) || defined(_ULTRIX)
-# define PLATFORM_ID "ULTRIX"
+# define PLATFORserver_ID "ULTRIX"
 
 #elif defined(__XENIX__) || defined(_XENIX) || defined(XENIX)
-# define PLATFORM_ID "Xenix"
+# define PLATFORserver_ID "Xenix"
 
 #elif defined(__WATCOMC__)
 # if defined(__LINUX__)
-#  define PLATFORM_ID "Linux"
+#  define PLATFORserver_ID "Linux"
 
 # elif defined(__DOS__)
-#  define PLATFORM_ID "DOS"
+#  define PLATFORserver_ID "DOS"
 
 # elif defined(__OS2__)
-#  define PLATFORM_ID "OS2"
+#  define PLATFORserver_ID "OS2"
 
 # elif defined(__WINDOWS__)
-#  define PLATFORM_ID "Windows3x"
+#  define PLATFORserver_ID "Windows3x"
 
 # elif defined(__VXWORKS__)
-#  define PLATFORM_ID "VxWorks"
+#  define PLATFORserver_ID "VxWorks"
 
 # else /* unknown platform */
-#  define PLATFORM_ID
+#  define PLATFORserver_ID
 # endif
 
 #elif defined(__INTEGRITY)
 # if defined(INT_178B)
-#  define PLATFORM_ID "Integrity178"
+#  define PLATFORserver_ID "Integrity178"
 
 # else /* regular Integrity */
-#  define PLATFORM_ID "Integrity"
+#  define PLATFORserver_ID "Integrity"
 # endif
 
 #else /* unknown platform */
-# define PLATFORM_ID
+# define PLATFORserver_ID
 
 #endif
 
@@ -531,34 +531,34 @@ char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";
    but rather depend on which compiler is being used
 */
 #if defined(_WIN32) && defined(_MSC_VER)
-# if defined(_M_IA64)
+# if defined(_server_IA64)
 #  define ARCHITECTURE_ID "IA64"
 
-# elif defined(_M_ARM64EC)
+# elif defined(_server_ARM64EC)
 #  define ARCHITECTURE_ID "ARM64EC"
 
-# elif defined(_M_X64) || defined(_M_AMD64)
+# elif defined(_server_X64) || defined(_server_AMD64)
 #  define ARCHITECTURE_ID "x64"
 
-# elif defined(_M_IX86)
+# elif defined(_server_IX86)
 #  define ARCHITECTURE_ID "X86"
 
-# elif defined(_M_ARM64)
+# elif defined(_server_ARM64)
 #  define ARCHITECTURE_ID "ARM64"
 
-# elif defined(_M_ARM)
-#  if _M_ARM == 4
+# elif defined(_server_ARM)
+#  if _server_ARM == 4
 #   define ARCHITECTURE_ID "ARMV4I"
-#  elif _M_ARM == 5
+#  elif _server_ARM == 5
 #   define ARCHITECTURE_ID "ARMV5I"
 #  else
-#   define ARCHITECTURE_ID "ARMV" STRINGIFY(_M_ARM)
+#   define ARCHITECTURE_ID "ARMV" STRINGIFY(_server_ARM)
 #  endif
 
-# elif defined(_M_MIPS)
+# elif defined(_server_MIPS)
 #  define ARCHITECTURE_ID "MIPS"
 
-# elif defined(_M_SH)
+# elif defined(_server_SH)
 #  define ARCHITECTURE_ID "SHx"
 
 # else /* unknown architecture */
@@ -566,10 +566,10 @@ char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";
 # endif
 
 #elif defined(__WATCOMC__)
-# if defined(_M_I86)
+# if defined(_server_I86)
 #  define ARCHITECTURE_ID "I86"
 
-# elif defined(_M_IX86)
+# elif defined(_server_IX86)
 #  define ARCHITECTURE_ID "X86"
 
 # else /* unknown architecture */
@@ -577,7 +577,7 @@ char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";
 # endif
 
 #elif defined(__IAR_SYSTEMS_ICC__) || defined(__IAR_SYSTEMS_ICC)
-# if defined(__ICCARM__)
+# if defined(__ICCARserver__)
 #  define ARCHITECTURE_ID "ARM"
 
 # elif defined(__ICCRX__)
@@ -618,7 +618,7 @@ char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";
 # elif defined(__ppc__)
 #  define ARCHITECTURE_ID "PPC"
 
-# elif defined(__ARM__)
+# elif defined(__ARserver__)
 #  define ARCHITECTURE_ID "ARM"
 
 # elif defined(__x86_64__)
@@ -632,7 +632,7 @@ char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";
 # endif
 
 #elif defined(__TI_COMPILER_VERSION__)
-# if defined(__TI_ARM__)
+# if defined(__TI_ARserver__)
 #  define ARCHITECTURE_ID "ARM"
 
 # elif defined(__MSP430__)
@@ -729,7 +729,7 @@ char const info_simulate_version[] = {
    getting matched.  Store it in a pointer rather than an array
    because some compilers will just produce instructions to fill the
    array rather than assigning a pointer to a static array.  */
-char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";
+char const* info_platform = "INFO" ":" "platform[" PLATFORserver_ID "]";
 char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";
 
 

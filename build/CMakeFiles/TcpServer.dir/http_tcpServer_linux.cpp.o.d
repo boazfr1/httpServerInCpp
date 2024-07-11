@@ -110,7 +110,7 @@ CMakeFiles/TcpServer.dir/http_tcpServer_linux.cpp.o: \
  /usr/include/c++/11/clocale /usr/include/locale.h \
  /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/11/iosfwd \
  /usr/include/c++/11/cctype /usr/include/ctype.h \
- /usr/include/c++/11/bits/ostream_insert.h \
+ /usr/include/c++/11/bits/ostreaserver_insert.h \
  /usr/include/c++/11/bits/cxxabi_forced.h \
  /usr/include/c++/11/bits/stl_function.h \
  /usr/include/c++/11/backward/binders.h \
@@ -153,7 +153,7 @@ CMakeFiles/TcpServer.dir/http_tcpServer_linux.cpp.o: \
  /usr/include/c++/11/bits/ios_base.h \
  /usr/include/c++/11/bits/locale_classes.h \
  /usr/include/c++/11/bits/locale_classes.tcc \
- /usr/include/c++/11/system_error \
+ /usr/include/c++/11/systeserver_error \
  /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h \
  /usr/include/c++/11/stdexcept /usr/include/c++/11/streambuf \
  /usr/include/c++/11/bits/streambuf.tcc \
